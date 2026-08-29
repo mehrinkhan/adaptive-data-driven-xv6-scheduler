@@ -27,6 +27,14 @@ An extension of **xv6-RISC-V** that implements an adaptive, data-driven CPU sche
 * **Testing and Benchmarking** — includes `teststats`, `optbench`, `threadtest`, `mutextest`, `semtest`, `cpubench`, and `tickbench`.
 * **Kernel-Level Implementation** — scheduler, process accounting, system calls, thread support, and synchronization mechanisms were integrated into xv6.
 
+## How It Works
+
+The scheduler continuously collects live process data such as CPU runtime, waiting time, sleeping time, and scheduling frequency from the xv6 kernel.
+This information is used to calculate an adaptive score that reflects each process's behavior.
+The scheduler uses these characteristics to make more informed scheduling decisions instead of treating all processes identically.
+CPU-bound and I/O-bound processes can therefore be identified based on their actual execution patterns.
+This data-driven approach aims to improve CPU utilization, responsiveness, and scheduling efficiency.
+
 ## Example Results
 
 ### CPU vs I/O Behavior
